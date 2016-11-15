@@ -38,7 +38,7 @@ class DataParser
     /**
      * 将xml转为array
      * @param string $xml
-     * @return array
+     * @return array|false
      */
     public static function toArray($xml)
     {
