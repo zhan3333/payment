@@ -42,7 +42,7 @@ class AliChargeTest extends \Codeception\Test\Unit
             "client_ip"	=> '127.0.0.1',
             "subject"	=> '测试支付宝wap支付',
             "body"	=> '测试支付宝wap支付',
-            "show_url"  => 'http://mall.tiyushe.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
+            "show_url"  => 'http://mall.xxxx.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
             "extra_param"	=> '',
         ];
         $wapCharge = new AliWapCharge($this->aliConfig);
@@ -72,7 +72,7 @@ class AliChargeTest extends \Codeception\Test\Unit
             "client_ip"	=> '127.0.0.1',
             "subject"	=> '测试支付宝app支付',
             "body"	=> '测试支付宝app支付',
-            "show_url"  => 'http://mall.tiyushe.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
+            "show_url"  => 'http://mall.xxxx.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
             "extra_param"	=> '',
         ];
 
@@ -101,7 +101,7 @@ class AliChargeTest extends \Codeception\Test\Unit
             "client_ip"	=> '127.0.0.1',
             "subject"	=> '测试支付宝app支付',
             "body"	=> '测试支付宝app支付',
-            "show_url"  => 'http://mall.tiyushe.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
+            "show_url"  => 'http://mall.xxxxx.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
             "extra_param"	=> '',
         ];
 
