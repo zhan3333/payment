@@ -5,6 +5,8 @@
  * @description: 支付相关的基础配置  无法被继承
  * @link      https://github.com/helei112g/payment/tree/paymentv2
  * @link      https://helei112g.github.io/
+ *
+ * @version 2.6.1
  */
 
 namespace Payment;
