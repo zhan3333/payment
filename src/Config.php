@@ -14,7 +14,7 @@ namespace Payment;
 
 final class Config
 {
-    const VERSION = '2.6.1';
+    const VERSION = '2.7.0';
 
     //========================= ali相关接口 =======================//
     const ALI = 'ali';
@@ -45,9 +45,6 @@ final class Config
 
     // 微信 APP 支付
     const WX_CHANNEL_APP = 'wx_app';
-
-    //======================= 银联在线接口 ====================//
-    const CHINAPAY = 'chinapay';
 
     // 支付的最小金额
     const PAY_MIN_FEE = '0.01';
