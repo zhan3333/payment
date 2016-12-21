@@ -16,7 +16,7 @@ final class Config
 {
     const VERSION = '2.6.1';
 
-    // ali相关接口
+    //========================= ali相关接口 =======================//
     const ALI = 'ali';
 
     // 支付宝 PC 网页支付
@@ -28,7 +28,7 @@ final class Config
     /// 支付宝 手机app 支付
     const ALI_CHANNEL_APP = 'ali_app';
 
-    // 微信相关接口
+    //========================= 微信相关接口 ======================//
     const WEIXIN = 'wx';
 
     // 微信退款单查询
@@ -45,6 +45,9 @@ final class Config
 
     // 微信 APP 支付
     const WX_CHANNEL_APP = 'wx_app';
+
+    //======================= 银联在线接口 ====================//
+    const CHINAPAY = 'chinapay';
 
     // 支付的最小金额
     const PAY_MIN_FEE = '0.01';

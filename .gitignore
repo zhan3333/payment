@@ -2,3 +2,4 @@
 .DS_Store
 /examples/rsa_private_key.pem
 /codecept.phar
+/examples/china_pay_private.key

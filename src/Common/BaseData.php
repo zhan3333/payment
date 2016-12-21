@@ -38,7 +38,7 @@ abstract class BaseData
      */
     public function __construct(ConfigInterface $config, array $reqData)
     {
-        $this->data = array_merge($reqData, $config->toArray());
+        $this->data = array_merge($config->toArray(), $reqData);
 
         try {
             $this->checkDataParam();

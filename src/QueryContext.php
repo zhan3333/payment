@@ -11,6 +11,7 @@ namespace Payment;
 use Payment\Common\BaseStrategy;
 use Payment\Common\PayException;
 use Payment\Query\AliTradeQuery;
+use Payment\Query\ChinapayQuery;
 use Payment\Query\WxRefundQuery;
 use Payment\Query\WxTradeQuery;
 use Payment\Query\WxTransferQuery;
@@ -49,8 +50,11 @@ class QueryContext
                 case Config::WEIXIN_TRANS:// 微信转款订单查询
                     $this->query = new WxTransferQuery($config);
                     break;
+                case Config::CHINAPAY:// 银联在线交易查询
+                    $this->query = new ChinapayQuery($config);
+                    break;
                 default:
-                    throw new PayException('当前仅支持：ALI WEIXIN WEIXIN_REFUND WEIXIN_TRANS');
+                    throw new PayException('当前仅支持：ALI WEIXIN CHINAPAY WEIXIN_REFUND WEIXIN_TRANS');
             }
         } catch (PayException $e) {
             throw $e;
