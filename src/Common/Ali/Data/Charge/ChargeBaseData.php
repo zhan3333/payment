@@ -59,8 +59,12 @@ abstract class ChargeBaseData extends AliBaseData
             throw new PayException('支付金额不能大于 ' . Config::PAY_MAX_FEE . ' 元');
         }
 
-        // 检查ip地址
-        if (empty($clientIp) || ! preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $clientIp)) {
+        $version = $this->version;
+        // 检查ip地址  老版本才需要检查
+        if (
+            empty($version) &&
+            (empty($clientIp) || ! preg_match('/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/', $clientIp))
+        ) {
             throw new PayException('IP 地址必须上传，并且以IPV4的格式');
         }
 

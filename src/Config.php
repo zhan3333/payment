@@ -71,4 +71,14 @@ final class Config
 
     // 转账的通知
     const TRANSFER_NOTIFY = 'transfer';
+
+    // =================== 2016.12.26 =====================//
+    // 支付宝的新版接口名称常量定义
+    const ALI_TRADE_APP = 'alipay.trade.app.pay';
+
+    // wap 支付
+    const ALI_TRADE_WAP = 'alipay.trade.wap.pay';
+
+    // 统一收单线下交易查询
+    const ALI_TRADE_QUERY = 'alipay.trade.query';
 }
