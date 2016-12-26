@@ -10,35 +10,16 @@ namespace Payment\Common\Ali\Data\Charge;
 
 use Payment\Common\AliConfig;
 use Payment\Config;
-use Payment\Utils\ArrayUtil;
 
 class AppChargeData extends ChargeBaseData
 {
-    /**
-     * 构建 APP支付 加密数据
-     * @author helei
-     */
-    protected function buildData()
-    {
-        $timeExpire = $this->timeExpire;
-
-        if ($this->version) {
-            $signData = $this->alipay2_0Data($timeExpire);
-        } else {
-            $signData = $this->alipay1_0Data($timeExpire);
-        }
-
-        // 移除数组中的空值
-        $this->retData = ArrayUtil::paraFilter($signData);
-    }
-
     /**
      * 老版本  app 支付数据
      * @param string $timeExpire  该笔订单允许的最晚付款时间
      *
      * @return array
      */
-    private function alipay1_0Data($timeExpire = '')
+    protected function alipay1_0Data($timeExpire = '')
     {
         $signData = [
             // 基本参数
@@ -72,7 +53,7 @@ class AppChargeData extends ChargeBaseData
      *
      * @return array
      */
-    private function alipay2_0Data($timeExpire = '')
+    protected function alipay2_0Data($timeExpire = '')
     {
         $signData = [
             // 公共参数

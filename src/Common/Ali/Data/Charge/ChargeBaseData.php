@@ -12,6 +12,7 @@ use Payment\Common\Ali\Data\AliBaseData;
 use Payment\Common\AliConfig;
 use Payment\Common\PayException;
 use Payment\Config;
+use Payment\Utils\ArrayUtil;
 
 /**
  * Class ChargeBaseData
@@ -31,6 +32,39 @@ use Payment\Config;
  */
 abstract class ChargeBaseData extends AliBaseData
 {
+
+    /**
+     * 构建 APP支付 加密数据
+     * @author helei
+     */
+    protected function buildData()
+    {
+        $timeExpire = $this->timeExpire;
+
+        if ($this->version) {
+            $signData = $this->alipay2_0Data($timeExpire);
+        } else {
+            $signData = $this->alipay1_0Data($timeExpire);
+        }
+
+        // 移除数组中的空值
+        $this->retData = ArrayUtil::paraFilter($signData);
+    }
+
+    /**
+     * 支付宝老版本构建数据
+     * @param string $timeExpire
+     * @return mixed
+     */
+    abstract protected function alipay1_0Data($timeExpire = '');
+
+    /**
+     * 支付宝新版本构建数据
+     * @param string $timeExpire
+     * @return mixed
+     */
+    abstract protected function alipay2_0Data($timeExpire = '');
+
     /**
      * 检查传入的支付参数是否正确
      *

@@ -55,10 +55,10 @@ try {
     //$type = Config::ALI_CHANNEL_WEB;
 
     // 支付宝 手机网站支接口
-    //$type = Config::ALI_CHANNEL_WAP;
+    $type = Config::ALI_CHANNEL_WAP;
 
     // 支付宝 移动支付接口
-    $type = Config::ALI_CHANNEL_APP;
+    //$type = Config::ALI_CHANNEL_APP;
 
     $charge->initCharge($type, $aliconfig);
 
