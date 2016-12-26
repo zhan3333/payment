@@ -82,7 +82,7 @@ class WxTradeQuery extends WxBaseStrategy
                 'channel'   => Config::WEIXIN,
                 'order_no'   => $data['out_trade_no'],
                 'buyer_id'   => $data['openid'],
-                'trade_state'   => $data['trade_state'],
+                'trade_state'   => strtolower($data['trade_state']),
                 'transaction_id'   => $data['transaction_id'],
                 'time_end'   => date('Y-m-d H:i:s', strtotime($data['time_end'])),
             ],

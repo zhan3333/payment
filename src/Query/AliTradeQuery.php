@@ -106,7 +106,7 @@ class AliTradeQuery extends AliBaseStrategy
                 'channel'   => Config::ALI,
                 'order_no'   => $data['response']['out_trade_no'],
                 'buyer_id'   => $data['response']['buyer_email'],
-                'trade_state'   => $data['response']['trade_status'],
+                'trade_state'   => strtolower($data['response']['trade_status']),
                 'transaction_id'   => $data['response']['trade_no'],
                 'time_end'   => $data['response']['gmt_payment'],
             ],
