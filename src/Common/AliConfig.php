@@ -192,7 +192,7 @@ final class AliConfig extends ConfigInterface
         $this->signType = 'RSA';
 
         // 	发送请求的时间，格式"yyyy-MM-dd HH:mm:ss"  需要正确设置时区
-        $this->timestamp = '2016-12-27 15:44:04';
+        $this->timestamp = date('Y-m-d H:i:s', time());
 
         // 初始 合作者身份ID
         if (key_exists('partner', $config)/* && strlen($config['partner']) == '16'*/) {
