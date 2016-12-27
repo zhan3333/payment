@@ -46,7 +46,7 @@ abstract class BaseData
             throw $e;
         }
 
-        $this->signType = 'MD5';// 默认使用RSA 进行加密处理
+        $this->signType = 'RSA';// 默认使用RSA 进行加密处理
     }
 
     /**
@@ -83,7 +83,14 @@ abstract class BaseData
     {
         $this->buildData();
 
-        $values = ArrayUtil::removeKeys($this->retData, ['sign', 'sign_type']);
+        $version = $this->version;// 支付宝新版本的签名，不需要移出  sign_type
+
+        if (empty($version)) {
+            $values = ArrayUtil::removeKeys($this->retData, ['sign', 'sign_type']);
+        } else {
+            $values = ArrayUtil::removeKeys($this->retData, ['sign']);
+        }
+
 
         $values = ArrayUtil::arraySort($values);
 

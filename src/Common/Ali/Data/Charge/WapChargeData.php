@@ -89,14 +89,14 @@ class WapChargeData extends ChargeBaseData
     private function getBizContent($timeExpire = '')
     {
         $content = [
-            'body'          => $this->body,
-            'subject'       => $this->subject,
-            'out_trade_no'  => $this->order_no,
-            'total_amount'  => $this->amount,
+            'body'          => strval($this->body),
+            'subject'       => strval($this->subject),
+            'out_trade_no'  => strval($this->order_no),
+            'total_amount'  => strval($this->amount),
 
             // 销售产品码，商家和支付宝签约的产品码，为固定值QUICK_MSECURITY_PAY
             'product_code'  => 'QUICK_WAP_PAY',
-            'goods_type'    => 1,
+            'goods_type'    => strval(1),
         ];
 
         if (! empty($timeExpire)) {
@@ -105,7 +105,7 @@ class WapChargeData extends ChargeBaseData
 
         $partner = $this->partner;
         if (! empty($partner)) {
-            $content['seller_id'] = $partner;
+            $content['seller_id'] = strval($partner);
         }
 
         return json_encode($content, JSON_UNESCAPED_SLASHES);

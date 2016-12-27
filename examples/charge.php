@@ -22,13 +22,13 @@ function createPayid()
 
 // 订单信息
 $payData = [
-    "order_no"	=> '123123',
+    "order_no"	=> createPayid(),
     "amount"	=> '0.01',// 单位为元 ,最小为0.01
-    //"client_ip"	=> '127.0.0.1',
+    "client_ip"	=> '127.0.0.1',
     "subject"	=> 'test1',
     "body"	=> 'test1',
-    //"show_url"  => 'http://mall.tiyushe.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
-    //"extra_param"	=> '',
+    "show_url"  => 'http://mall.tiyushe.com/goods/23.html',// 支付宝手机网站支付接口 该参数必须上传 。其他接口忽略
+    "extra_param"	=> '',
 ];
 
 // 微信扫码支付，需要设置的参数

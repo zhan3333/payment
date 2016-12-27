@@ -12,6 +12,7 @@ namespace Payment\Charge\Ali;
 
 use Payment\Common\Ali\AliBaseStrategy;
 use Payment\Common\Ali\Data\Charge\AppChargeData;
+use Payment\Config;
 use Payment\Utils\ArrayUtil;
 use Payment\Utils\StrUtil;
 
@@ -41,7 +42,7 @@ class AliAppCharge extends AliBaseStrategy
 
         $sign = $data['sign'];
         unset($data['sign']);
-        if ($this->config->version === $data['version']) {
+        if ($this->config->version === Config::ALI_API_VERSION) {
             // 支付宝新版本
             foreach ($data as &$value) {
                 $value = StrUtil::characet($value, $this->config->inputCharset);

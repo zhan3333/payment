@@ -57,6 +57,19 @@ abstract class AliBaseData extends BaseData
         $this->signType = $config->signType;// 默认使用RSA 进行加密处理
     }
 
+    public function getData()
+    {
+        $data = parent::getData();
+
+        $version = $this->version;
+        if ($version) {
+            // 新版需要对数据进行排序
+            $data = ArrayUtil::arraySort($data);
+        }
+
+        return $data;
+    }
+
     /**
      * 签名算法实现
      * @param string $signStr

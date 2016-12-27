@@ -1,6 +1,3 @@
 .idea
 .DS_Store
-/examples/rsa_private_key.pem.bak
 /codecept.phar
-/examples/china_pay_private.key
-/examples/rsa_private_key.pem

@@ -40,8 +40,9 @@ abstract class ChargeBaseData extends AliBaseData
     protected function buildData()
     {
         $timeExpire = $this->timeExpire;
+        $version = $this->version;
 
-        if ($this->version) {
+        if ($version) {
             $signData = $this->alipay2_0Data($timeExpire);
         } else {
             $signData = $this->alipay1_0Data($timeExpire);

@@ -72,7 +72,9 @@ final class Config
     // 转账的通知
     const TRANSFER_NOTIFY = 'transfer';
 
-    // =================== 2016.12.26 =====================//
+    // =================== 2016.12.26 支付宝新版本信息 =====================//
+    const ALI_API_VERSION = '1.0';// 支付宝新版本号
+
     // 支付宝的新版接口名称常量定义
     const ALI_TRADE_APP = 'alipay.trade.app.pay';
 
