@@ -108,6 +108,6 @@ class WapChargeData extends ChargeBaseData
             $content['seller_id'] = strval($partner);
         }
 
-        return json_encode($content, JSON_UNESCAPED_SLASHES);
+        return json_encode($content, JSON_UNESCAPED_UNICODE);
     }
 }

@@ -22,7 +22,7 @@ return [
 
     // 新版与老版支付  共同参数，
     'rsa_private_key'   => dirname(__FILE__) . DIRECTORY_SEPARATOR . 'rsa_private_key.pem',
-    "notify_url"	=> 'http://www.baidu.com',
+    "notify_url"	=> 'http://test.helei.com/notify-url.html',
     "return_url"	=> 'http://test.helei.com/return-url.html',
     "time_expire"	=> '15',// 取值为分钟
 ];

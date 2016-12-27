@@ -76,21 +76,21 @@ class AppChargeData extends ChargeBaseData
     /**
      * 业务请求参数的集合，最大长度不限，除公共参数外所有请求参数都必须放在这个参数中传递
      *
-     * @param string $timeExpire 订单过期时间，  分钟
+     * @param string $timeExpire 订单过期时间，  单位 分钟
      *
      * @return string
      */
     private function getBizContent($timeExpire = '')
     {
         $content = [
-            'body'          => $this->body,
-            'subject'       => $this->subject,
-            'out_trade_no'  => $this->order_no,
-            'total_amount'  => $this->amount,
+            'body'          => strval($this->body),
+            'subject'       => strval($this->subject),
+            'out_trade_no'  => strval($this->order_no),
+            'total_amount'  => strval($this->amount),
 
             // 销售产品码，商家和支付宝签约的产品码，为固定值QUICK_MSECURITY_PAY
             'product_code'  => 'QUICK_MSECURITY_PAY',
-            'goods_type'    => 1,
+            'goods_type'    => strval(1),
         ];
 
         if (! empty($timeExpire)) {
@@ -99,9 +99,9 @@ class AppChargeData extends ChargeBaseData
 
         $partner = $this->partner;
         if (! empty($partner)) {
-            $content['seller_id'] = $partner;
+            $content['seller_id'] = strval($partner);
         }
 
-        return json_encode($content, JSON_UNESCAPED_SLASHES);
+        return json_encode($content, JSON_UNESCAPED_UNICODE);
     }
 }
