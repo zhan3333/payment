@@ -67,4 +67,17 @@ class NotifyContext
 
         return $this->notify->handle($notify);
     }
+
+
+    /**
+     * 设置notify数据
+     *
+     * 请传入支付宝或微信返回的原始数据
+     *
+     * @param $data
+     */
+    public function setNotifyData($data)
+    {
+        return $this->setNotifyData($data);
+    }
 }
