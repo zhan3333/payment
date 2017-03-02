@@ -60,6 +60,35 @@ class WxNotify extends NotifyStrategy
     }
 
     /**
+     * 设置异步通知的数据
+     *
+     * 设置后将不会通过 getNotifyData 来自动获取数据
+     *
+     * 这里设置为 file_get_contents('php://input') 获取到的值即可
+     *
+     * 在swoole中，'php://input'将不生效，这里提供一个补救的方法
+     *
+     * @param $data
+     * @return mixed|void
+     */
+    protected function setNotifyData($data)
+    {
+        if (empty($data)) {
+            return false;
+        } else {
+            // 将xml数据格式化为数组
+            $arrData = DataParser::toArray($data);
+            if (empty($arrData)) {
+                return false;
+            }
+            // 移除值中的空格  xml转化为数组时，CDATA 数据会被带入额外的空格。
+            $arrData = ArrayUtil::paraFilter($arrData);
+            $this->notifyData = $arrData;
+            return true;
+        }
+    }
+
+    /**
      * 检查微信异步通知的数据是否正确
      * @param array $data
      *

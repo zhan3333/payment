@@ -54,6 +54,26 @@ class AliNotify extends NotifyStrategy
     }
 
     /**
+     * 设置异步通知的数据
+     *
+     * 设置后将不会通过 getNotifyData 来自动获取数据
+     *
+     * 这里设置为 $_POST 或者 $_GET 即可
+     *
+     * @param $data
+     * @return mixed|void
+     */
+    protected function setNotifyData($data)
+    {
+        if (empty($data) || ! is_array($data)) {
+            return false;
+        } else {
+            $this->notifyData = $data;
+            return true;
+        }
+    }
+
+    /**
      * 检查异步通知的数据是否合法
      *
      * 如果检查失败，返回false

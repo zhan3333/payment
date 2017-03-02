@@ -13,6 +13,12 @@ abstract class NotifyStrategy
 {
 
     /**
+     * 异步回调数据
+     * @var
+     */
+    protected $notifyData;
+
+    /**
      * 配置信息
      * @var array $config
      */
@@ -37,7 +43,12 @@ abstract class NotifyStrategy
     final public function handle(PayNotifyInterface $notify)
     {
         // 获取异步通知的数据
-        $notifyData = $this->getNotifyData();
+        if (!empty($this->notifyData)) {
+            $notifyData = $this->notifyData;
+            $this->notifyData = null;
+        } else {
+            $notifyData = $this->getNotifyData();
+        }
         if ($notifyData === false) {// 失败，就返回错误
             return $this->replyNotify(false, '获取通知数据失败');
         }
