@@ -63,7 +63,7 @@ class AliNotify extends NotifyStrategy
      * @param $data
      * @return mixed|void
      */
-    protected function setNotifyData($data)
+    public function setNotifyData($data)
     {
         if (empty($data) || ! is_array($data)) {
             return false;

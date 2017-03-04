@@ -75,9 +75,10 @@ class NotifyContext
      * 请传入支付宝或微信返回的原始数据
      *
      * @param $data
+     * @return mixed
      */
     public function setNotifyData($data)
     {
-        return $this->setNotifyData($data);
+        return $this->notify->setNotifyData($data);
     }
 }

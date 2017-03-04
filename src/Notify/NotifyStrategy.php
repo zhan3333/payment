@@ -99,6 +99,13 @@ abstract class NotifyStrategy
     abstract public function getNotifyData();
 
     /**
+     * 设置回调原始数据
+     * @param $data
+     * @return mixed
+     */
+    abstract public function setNotifyData($data);
+
+    /**
      * 检查异步通知的数据是否合法
      *
      * 如果检查失败，返回false
